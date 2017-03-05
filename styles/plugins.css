@@ -1,0 +1,23 @@
+.tabJocky {
+  background-color: #bbedd5;
+  padding: 20px;
+  margin: 0 0 10px 0;
+}
+.tabJocky h2 {
+  margin: 0;
+}
+.tabJocky p {
+  font-size: 14px;
+}
+.tabJocky .strapline {
+  font-size: 16px;
+}
+.tabJocky .version-number {
+  font-size: 12px;
+}
+.tabJocky .demo-box {
+  width: 100%;
+  border-top: 1px solid black;
+  margin: 10px 0;
+  float: left;
+}

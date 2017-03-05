@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Jocky Plugin Suite</title>
+    <!-- STYLES -->
+    <link rel="stylesheet" type="text/css" href="styles/buttons.css" />
+    <link rel="stylesheet" type="text/css" href="styles/specific.css" />
+    <link rel="stylesheet" type="text/css" href="styles/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="styles/plugins.css" />
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+    <!-- jQUERY-->
+    <script src="jquery-3.1.1.min.js" type="text/javascript"></script>
+    <!-- MODALJOCKY -->
+    <script type="text/javascript" src="modalJocky/modalJocky.js"></script>
+    <link rel="stylesheet" type="text/css" href="modalJocky/modalJocky.css" />
+    <!-- TABJOCKY -->
+    <script type="text/javascript" src="tabJocky/tabJocky.js"></script>
+    <link rel="stylesheet" type="text/css" href="tabJocky/tabJocky.css" />
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="main-title">Jocky Plugin Suite</h1>
+      <ul class="tab-selection">
+        <li class="tab" data-tab="modal-jocky">modalJocky</li>
+        <li class="tab active" data-tab="tab-jocky">tabJocky</li>
+        <li class="tab" data-tab="slide-jocky">slideJocky</li>
+        <li class="tab" data-tab="drop-jocky">dropJocky</li>
+        <li class="tab" data-tab="top-jocky">topJocky</li>
+        <li class="tab" data-tab="contact-jocky">contactJocky</li>
+      </ul>
+      <!-- MODALJOCKY DETAILS -->
+      <div class="tabJocky modal-jocky">
+        <h2>modalJocky</h2>
+        <p class="strapline">A simple plugin to enable use of modals in front end development.</p>
+        <p class="version-number">Version: 1.0</p>
+        <a class="download-button" href="modalJocky/modalJocky.js">Download javascript</a>
+        <a class="download-button" href="modalJocky/modalJocky.css">Download CSS</a>
+        <p>
+          This plugin makes use of a link with a data-model attribute, targetting an already hidden
+          modal with content inside further down the page.
+        </p>
+        <p>
+          You can view the source code for further clarification
+          or contact me through the details on the contact tab if you need help.
+        </p>
+        <div class="demo-box">
+          <h3>Basic Usage</h3>
+          <p>This is the default use of modalJocky, please see below how this can be implemented in jQuery and html.</p>
+          <a class="whiteCross" data-modal="white-cross">Click here for demo</a>
+          <pre>
+            <u>jQuery</u>
+            <code>
+            $('.whiteCross').click(function(){
+              $(this).modalJocky();
+            });
+            </code>
+            <u>HTML</u>
+            <code>
+            &lt;a class="whiteCross" data-modal="white-cross"&gt;Demo White Cross Modal&lt;/a&gt;
+            &lt;div style="display: none;" class="white-cross modalJocky"&gt;content here&lt;/div&gt;
+            </code>
+          </pre>
+        </div>
+        <div class="demo-box">
+          <h3>Different Close Button</h3>
+          <p>This is a demo on setting a different close button. Anything similar (images, text etc.) can be used in the same way.</p>
+          <a class="fontAwesome" data-modal="font-awesome">Click here for demo</a>
+          <pre>
+            <u>jQuery</u>
+            <code>
+              $('.fontAwesome').click(function(){
+                $(this).modalJocky({
+                  closeBtn: '&lti class="fa fa-times"&gt;&lt/i&gt;'
+                });
+              });
+            </code>
+            <u>HTML</u>
+            <code>
+            &lt;a class="fontAwesome" data-modal="font-awesome"&gt;Demo White Cross Modal&lt;/a&gt;
+            &lt;div style="display: none;" class="font-awesome modalJocky"&gt;content here&lt;/div&gt;
+            </code>
+          </pre>
+        </div>
+        <div class="clearfix"><!-- --></div>
+      </div>
+      <!-- TABJOCKY DETAILS -->
+      <div class="tabJocky tab-jocky active">
+        <h2>tabJocky</h2>
+        <p class="strapline">A simple plugin to turn a list into tabs.</p>
+        <p class="version-number">Version: 1.0</p>
+        <a class="download-button" href="tabJocky/tabJocky.js">Download javascript</a>
+        <a class="download-button" href="tabJocky/tabJocky.css">Download CSS</a>
+        <p>
+          This plugin makes use of a link with a data-tab attribute, which changes the tab
+          based on the set data-tab, using active states to hide or display each tab.
+        </p>
+        <p>
+          You can view the source code for further clarification
+          or contact me through the details on the contact tab if you need help.
+        </p>
+        <div class="demo-box">
+          <h3>Basic Usage</h3>
+          <p>This is the default use of tabJocky, please see below how this can be implemented in jQuery and html.</p>
+          <p>The jQuery searchs for a class on your hidden tabs, until it finds one which matches the data-tab of the li that was clicked.</p>
+          <pre>
+            <u>jQuery</u>
+            <code>
+            $('.tab-selection .tab').click(function(){
+              $(this).tabJocky();
+            });
+            </code>
+            <u>HTML</u>
+            <code>
+            &lt;ul class="tab-selection"&gt;
+              &lt;li class="tab active" data-tab="tab-jocky"&gt;tabJocky&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;div class="tabJocky tab-jocky active"&gt;
+            &lt;/div&gt;
+            </code>
+          </pre>
+          <p>This tabbed area for the Jocky Suite is using this plugin in this format.</p>
+        </div>
+        <div class="demo-box">
+          <h3>Multiple Tab Areas</h3>
+          <p>This will be needed if you have multiple tab areas on one page, otherwise the jQuery will likely crash or show unexpected results.</p>
+          <p>You control which tab area is being selected with a class added to the tab area.</p>
+          <a class="whiteCross" data-modal="white-cross">Click here for demo</a>
+          <pre>
+            <u>jQuery</u>
+            <code>
+            $('.tab-selection .tab').click(function(){
+              $(this).tabJocky({
+                multitab: 'multitab1'
+              });
+            });
+            </code>
+            <u>HTML</u>
+            <code>
+            &lt;ul class="tab-selection"&gt;
+              &lt;li class="tab active" data-tab="tab-jocky"&gt;tabJocky&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;div class="tabJocky multitab1 tab-jocky active"&gt;
+            &lt;/div&gt;
+            </code>
+          </pre>
+          <div class="tabJockyDemo">
+            <ul class="tab-selections">
+              <li class="tab" data-tab="demo1">Demo1</li>
+              <li class="tab" data-tab="demo2">Demo2</li>
+              <li class="tab" data-tab="demo3">Demo3</li>
+            </ul>
+            <div class="tabJocky multitab1 demo1">
+              demo1
+            </div>
+            <div class="tabJocky multitab1 demo2">
+              demo2
+            </div>
+            <div class="tabJocky multitab1 demo3">
+              demo3
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"><!-- --></div>
+      </div>
+      <!-- SLIDEJOCKY DETAILS -->
+      <div class="tabJocky slide-jocky">
+        <h2>slideJocky</h2>
+        <p class="strapline">A simple plugin to turn a list into a slideshow.</p>
+      </div>
+      <!-- DROPJOCKY DETAILS -->
+      <div class="tabJocky drop-jocky">
+        <h2>dropJocky</h2>
+        <p class="strapline">A simple plugin to turn a list into an accordion.</p>
+      </div>
+      <!-- TOPJOCKY DETAILS -->
+      <div class="tabJocky top-jocky">
+        <h2>topJocky</h2>
+        <p class="strapline">A simple plugin to return to the top of the page via button or link.</p>
+      </div>
+      <!-- CONTACT DETAILS -->
+      <div class="tabJocky contact-jocky">
+        <h2>contactJocky</h2>
+        <p class="strapline">Contact me here because I am awesome.</p>
+      </div>
+    </div>
+
+
+    <div style="display: none;" class="white-cross modalJocky">
+      <div class="demo-cont">
+        <h3>Default White Cross</h3>
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+          doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+          veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+          voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+          magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+          qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
+          eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+        </p>
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+          doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+          veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+          voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+          magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+          qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
+          eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+        </p>
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+          doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+          veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+          voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+          magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+          qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
+          eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+        </p>
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+          doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+          veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+          voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+          magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+          qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
+          eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+        </p>
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+          doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+          veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+          voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+          magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+          qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
+          eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+        </p>
+      </div>
+    </div>
+    <div style="display: none;" class="font-awesome modalJocky">
+      <div class="demo-cont">
+        <h3>Font Awesome Close Button</h3>
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+          doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+          veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+          voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+          magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+          qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
+          eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+        </p>
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+          doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+          veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+          voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+          magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+          qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
+          eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+        </p>
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+          doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+          veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+          voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+          magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+          qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
+          eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+        </p>
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+          doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+          veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+          voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+          magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+          qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
+          eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+        </p>
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+          doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+          veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+          voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+          magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+          qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
+          eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+        </p>
+      </div>
+    </div>
+    <script>
+      $('.whiteCross').click(function(){
+        $(this).modalJocky();
+      });
+      $('.fontAwesome').click(function(){
+        $(this).modalJocky({
+          closeBtn: '<i class="fa fa-times"></i>'
+        });
+      });
+      $('.tab-selection .tab').click(function(){
+        $(this).tabJocky();
+      });
+      $('.tab-selections .tab').click(function(){
+        $(this).tabJocky({
+          multitab: 'multitab1'
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+.tabJocky {
+  display: none;
+}
+.tabJocky.active {
+  display: block;
+}
